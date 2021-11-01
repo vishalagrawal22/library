@@ -11,6 +11,17 @@ body {
   background-size: 100% 100%;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: "BioRhyme", serif;
+  font-size: xxx-large;
+  margin: 2vh;
+  margin-left: auto;
+  color: white;
+}
+
 #book-list {
   display: flex;
   flex-direction: column;
@@ -23,11 +34,40 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: grey;
+  border-radius: 15px;
+  background-color: rgba(120, 120, 120, 0.8);
   color: white;
 }
 
 .book-image {
-  height: 10vh;
-  width: 5vw;
+  height: 100%;
+  width: 25%;
+  margin: 1vw;
+}
+
+.book-details {
+  height: 100%;
+  width: 75%;
+  margin: 1vw;
+  margin-left: 0vw;
+  align-items: flex-start;
+}
+
+.book-header {
+  color: white;
+  margin-right: 1vw;
+  font-family: "BioRhyme", serif;
+  font-size: large;
+}
+
+.book-value {
+  color: black;
+  font-family: "Space Mono", monospace;
+  font-size: large;
+}
+
+.book-data {
+  display: flex;
+  flex-direction: row;
+  margin: 1vw;
 }

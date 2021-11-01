@@ -2,6 +2,12 @@
 <html>
   <head>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=BioRhyme&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
     <title>Library</title>
   </head>
   <body>
@@ -12,21 +18,31 @@
           <img src="./images/default_book_logo.svg" />
         </section>
         <section class="book-details">
-          <p>
-            Title:
-            <a href="#">
-              <span class="book-title">
-                Harry Potter and the Chamber of Secrets
-              </span>
-            </a>
-          </p>
-          <p>
-            Author:
-            <a href="#"><span class="book-author">J. K. Rowling</span></a>
-          </p>
-          <p>Number of pages: <span class="book-page-count">251</span></p>
-          <label for="is-read">Is read? </label>
-          <input type="checkbox" name="is-read" value="1" checked>
+          <section class="book-data book-title">
+            <div class="book-header">Title:</div>
+            <div class="book-value">
+              Harry Potter and the Chamber of Secrets
+            </div>
+          </section>
+
+          <section class="book-data book-author">
+            <div class="book-header">Author:</div>
+            <div class="book-value">J. K. Rowling</div>
+          </section>
+
+          <section class="book-data book-page-count">
+            <div class="book-header">Number of pages:</div>
+            <div class="book-value">251</div>
+          </section>
+
+          <section class="book-data book-is-read">
+            <div class="book-header">
+              <label for="is-read">Is read? </label>
+            </div>
+            <div class="book-value">
+              <input type="checkbox" name="is-read" value="1" checked />
+            </div>
+          </section>
         </section>
       </article>
     </main>
