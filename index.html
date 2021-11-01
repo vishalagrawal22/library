@@ -5,6 +5,31 @@
     <title>Library</title>
   </head>
   <body>
+    <header>Welcome to the library</header>
+    <main id="book-list">
+      <article class="book-item">
+        <section class="book-image">
+          <img src="./images/default_book_logo.svg" />
+        </section>
+        <section class="book-details">
+          <p>
+            Title:
+            <a href="#">
+              <span class="book-title">
+                Harry Potter and the Chamber of Secrets
+              </span>
+            </a>
+          </p>
+          <p>
+            Author:
+            <a href="#"><span class="book-author">J. K. Rowling</span></a>
+          </p>
+          <p>Number of pages: <span class="book-page-count">251</span></p>
+          <label for="is-read">Is read? </label>
+          <input type="checkbox" name="is-read" value="1" checked>
+        </section>
+      </article>
+    </main>
     <script src="./main.js"></script>
   </body>
 </html>
