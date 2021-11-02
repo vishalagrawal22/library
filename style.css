@@ -41,6 +41,10 @@ header {
   color: white;
 }
 
+.book-item:hover {
+  background-color: rgb(120, 120, 120, 0.9);
+}
+
 .book-image {
   display: flex;
   flex-direction: column;
@@ -50,7 +54,7 @@ header {
   margin-right: 1vmax;
 }
 
-.book-image>img {
+.book-image > img {
   height: 80%;
 }
 
@@ -75,7 +79,37 @@ header {
   font-size: 2.5vmin;
 }
 
+.book-value-button {
+  margin: auto;
+  margin-left: 1vmax;
+}
+
+.book-value-button > button {
+  font-size: 2vmin;
+}
+
+button {
+  cursor: pointer;
+}
+
 .book-data {
   display: flex;
   flex-direction: row;
+}
+
+#add-book {
+  background-color: #66cdaa;
+  border: none;
+  width: 7vmin;
+  height: 7vmin;
+  color: white;
+  font-family: Verdana;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  position: fixed;
+  bottom: 5vmin;
+  right: 5vmin;
+  border-radius: 50%;
 }
