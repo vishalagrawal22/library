@@ -16,8 +16,8 @@ header {
   justify-content: center;
   width: 100%;
   font-family: "BioRhyme", serif;
-  font-size: xxx-large;
-  margin: 2vh;
+  font-size: 5.5vw;
+  margin: 0.5vh;
   margin-left: auto;
   color: white;
 }
@@ -30,44 +30,52 @@ header {
 }
 
 .book-item {
+  width: 70vmin;
+  height: 15vmax;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin: 1vh;
+  padding: 2vh;
   border-radius: 15px;
   background-color: rgba(120, 120, 120, 0.8);
   color: white;
 }
 
 .book-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
   width: 25%;
-  margin: 1vw;
+  margin-right: 1vmax;
+}
+
+.book-image>img {
+  height: 80%;
 }
 
 .book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   height: 100%;
   width: 75%;
-  margin: 1vw;
-  margin-left: 0vw;
-  align-items: flex-start;
 }
 
 .book-header {
   color: white;
-  margin-right: 1vw;
+  margin-right: 1vmax;
   font-family: "BioRhyme", serif;
-  font-size: large;
+  font-size: 2.5vmin;
 }
 
 .book-value {
   color: black;
   font-family: "Space Mono", monospace;
-  font-size: large;
+  font-size: 2.5vmin;
 }
 
 .book-data {
   display: flex;
   flex-direction: row;
-  margin: 1vw;
 }
