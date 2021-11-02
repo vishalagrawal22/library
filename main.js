@@ -1,46 +1,77 @@
 const defaultImageURL = "./images/default_book_logo.svg";
 
-function createBookItem(imageUrl, title, author, pageCount, isRead) {
-    let checkStatus = isRead ? "checked" : "";
-    let bookItemHtml = `<article class="book-item">
+let bookList = [];
+
+function Book(title, author, pageCount, isRead, imageUrl) {
+    this.title = title;
+    this.author = author;
+    this.pageCount = pageCount;
+    this.isRead = isRead;
+    this.imageUrl = imageUrl;
+}
+
+Book.prototype.getReadStatus = function () {
+    return this.isRead ? "Finished" : "Pending";
+}
+
+Book.prototype.getActionStatus = function () {
+    return this.isRead ? "Mark as pending" : "Mark as finished";
+}
+
+function getUserInput() {
+    console.log("Something");
+}
+
+function changeStatus(index) {
+    statusSection = document.querySelector(`[data-index="${index}"] .book-details .book-is-read`);
+    bookList[index].isRead = !bookList[index].isRead;
+    let readStatus = statusSection.querySelector(".book-value");
+    readStatus.innerHTML = bookList[index].getReadStatus();
+    let actionStatus = statusSection.querySelector(".book-value-button button");
+    actionStatus.innerHTML = bookList[index].getActionStatus();
+}
+
+function addBookToLibrary(index) {
+    let bookItemHtml = `<article class="book-item" data-index=${index}>
                         <section class="book-image">
-                        <img src="${imageUrl}" alt="Not Found" onerror=this.src="${defaultImageURL}" />
+                        <img src="${bookList[index].imageUrl}" alt="Not Found" onerror=this.src="${defaultImageURL}" />
                         </section>
                         <section class="book-details">
                         <section class="book-data book-title">
-                            <div class="book-header">Title:</div>
-                            <div class="book-value">
-                            ${title}
-                            </div>
+                            <section class="book-header">Title:</section>
+                            <section class="book-value">
+                            ${bookList[index].title}
+                            </section>
                         </section>
 
                         <section class="book-data book-author">
-                            <div class="book-header">Author:</div>
-                            <div class="book-value">${author}</div>
+                            <section class="book-header">Author:</section>
+                            <section class="book-value">${bookList[index].author}</section>
                         </section>
 
                         <section class="book-data book-page-count">
-                            <div class="book-header">Number of pages:</div>
-                            <div class="book-value">${pageCount}</div>
+                            <section class="book-header">Number of pages:</section>
+                            <section class="book-value">${bookList[index].pageCount}</section>
                         </section>
 
                         <section class="book-data book-is-read">
-                            <div class="book-header">
-                            <label for="is-read">Is read? </label>
-                            </div>
-                            <div class="book-value">
-                            <input type="checkbox" name="is-read" value="1" ${checkStatus} />
-                            </div>
+                            <section class="book-header">Status: </section>
+                            <section class="book-value">${bookList[index].getReadStatus()}</section>
+                            <section class="book-value-button">
+                                <button class="is-read" onclick="changeStatus(${index})">${bookList[index].getActionStatus()}</button>
+                            </section>
                         </section>
                         </section>
                         </article>`
-    const bookListSection = document.querySelector("#book-list");
+    let bookListSection = document.querySelector("#book-list");
     bookListSection.innerHTML += bookItemHtml;
 }
 
-// ,  , [null, "C", "D", 69, 1]
-let bookList = [["https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR", "Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, 1], [null, "Amazing book title", "Famous author", 263, 0]];
+let bookArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Amazing book title", "Famous author", 263, false, null]];
+for (const book of bookArray) {
+    bookList.push(new Book(...book));
+}
 
-for (const book of bookList) {
-    createBookItem(...book);
+for (let i = 0; i < bookList.length; i++) {
+    addBookToLibrary(i);
 }
