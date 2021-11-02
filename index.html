@@ -11,12 +11,59 @@
     <title>Library</title>
   </head>
   <body>
-    <header>Welcome to the library</header>
-    <main id="book-list">
-    </main>
-    <button id="add-book" title="Add Book" onclick="getUserInput()">
-      +
-    </button>
+    <section id="form-container" class="hidden">
+      <section id="form-flex-container">
+        <form method="post">
+          <div id="exit-button">
+            <button onclick="exitForm()">X</button>
+          </div>
+          <section>
+            <label for="book-title">Title *</label>
+            <input
+              type="text"
+              id="input-book-title"
+              name="book-title"
+              placeholder="Amazing book title"
+            />
+          </section>
+          <section>
+            <label for="book-author">Author *</label>
+            <input
+              type="text"
+              id="input-book-author"
+              name="book-author"
+              placeholder="Famous author"
+            />
+          </section>
+          <section>
+            <label for="book-page-count">Page Count *</label>
+            <input
+              type="text"
+              id="input-book-page-count"
+              name="book-page-count"
+              placeholder="263"
+            />
+          </section>
+          <section>
+            <label for="book-image-url">Image URL (optional)</label>
+            <input
+              type="text"
+              id="input-book-image-url"
+              name="book-image-url"
+            />
+          </section>
+          <section>
+            <button>Submit</button>
+          </section>
+          <p>All fields marked with * are required</p>
+        </form>
+      </section>
+    </section>
+    <section id="base-container">
+      <header>Welcome to the library</header>
+      <main id="book-list"></main>
+    </section>
+    <button id="add-book" title="Add Book" onclick="getUserInput()">+</button>
     <script src="./main.js"></script>
   </body>
 </html>

@@ -18,8 +18,24 @@ Book.prototype.getActionStatus = function () {
     return this.isRead ? "Mark as pending" : "Mark as finished";
 }
 
+function exitForm() {
+    let inputForm = document.querySelector("#form-container");
+    inputForm.classList.add("hidden");
+    let baseContainer = document.querySelector("#base-container");
+    baseContainer.classList.remove("hidden");
+}
+
+let form = document.querySelector('form');
+form.addEventListener('submit', event => {
+    event.preventDefault();
+    exitForm();
+});
+
 function getUserInput() {
-    console.log("Something");
+    let inputForm = document.querySelector("#form-container");
+    inputForm.classList.remove("hidden");
+    let baseContainer = document.querySelector("#base-container");
+    baseContainer.classList.add("hidden");
 }
 
 function changeStatus(index) {

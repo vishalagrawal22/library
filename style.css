@@ -42,7 +42,7 @@ header {
 }
 
 .book-item:hover {
-  background-color: rgb(120, 120, 120, 0.9);
+  background-color: rgb(120, 120, 120, 0.95);
 }
 
 .book-image {
@@ -112,4 +112,59 @@ button {
   bottom: 5vmin;
   right: 5vmin;
   border-radius: 50%;
+}
+
+#form-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#form-flex-container {
+  height: 100%;
+  width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background-color: white;
+  border-radius: 15px;
+  padding: 3vmax;
+  box-shadow: 1px 1px 0px #999,
+              2px 2px 0px #999,
+              3px 3px 0px #999,
+              4px 4px 0px #999,
+              5px 5px 0px #999,
+              6px 6px 0px #999;
+}
+
+form > section {
+  display: flex;
+  flex-direction: column;
+  margin: 2vmax;
+}
+
+.hidden {
+  display: none;
+}
+
+#exit-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#exit-button > button {
+  background-color: transparent;
+  border-color: black;
+  border-radius: 15px;
 }
