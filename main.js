@@ -1,6 +1,7 @@
 const defaultImageURL = "./images/default_book_logo.svg";
 
 function createBookItem(imageUrl, title, author, pageCount, isRead) {
+    let checkStatus = isRead ? "checked" : "";
     let bookItemHtml = `<article class="book-item">
                         <section class="book-image">
                         <img src="${imageUrl}" alt="Not Found" onerror=this.src="${defaultImageURL}" />
@@ -28,7 +29,7 @@ function createBookItem(imageUrl, title, author, pageCount, isRead) {
                             <label for="is-read">Is read? </label>
                             </div>
                             <div class="book-value">
-                            <input type="checkbox" name="is-read" value="1" checked />
+                            <input type="checkbox" name="is-read" value="1" ${checkStatus} />
                             </div>
                         </section>
                         </section>
