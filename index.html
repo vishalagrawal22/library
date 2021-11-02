@@ -13,7 +13,7 @@
   <body>
     <section id="form-container" class="hidden">
       <section id="form-flex-container">
-        <form method="post">
+        <form method="POST">
           <div class="exit-button">
             <button onclick="exitForm()">X</button>
           </div>
@@ -23,6 +23,8 @@
               type="text"
               id="input-book-title"
               name="book-title"
+              maxlength="50"
+              required
               placeholder="Amazing book title"
             />
           </section>
@@ -32,15 +34,19 @@
               type="text"
               id="input-book-author"
               name="book-author"
+              maxlength="50"
+              required
               placeholder="Famous author"
             />
           </section>
           <section>
             <label for="book-page-count">Page Count *</label>
             <input
-              type="text"
+              type="number" 
               id="input-book-page-count"
               name="book-page-count"
+              min="1"
+              required
               placeholder="263"
             />
           </section>

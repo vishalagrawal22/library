@@ -28,6 +28,13 @@ function exitForm() {
 let form = document.querySelector('form');
 form.addEventListener('submit', event => {
     event.preventDefault();
+    let data = form.elements;
+    let title = data["book-title"].value;
+    let author = data["book-author"].value;
+    let pageCount = data["book-page-count"].value;
+    let imageURL = data["book-image-url"].value;
+    bookList.push(new Book(title, author, pageCount, false, imageURL));
+    addBookToLibrary(bookList.length - 1);
     exitForm();
 });
 
@@ -102,7 +109,7 @@ function addBookToLibrary(index) {
     bookListSection.innerHTML += bookItemHtml;
 }
 
-let bookArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Amazing book title", "Famous author", 263, false, null], ["Amazing book title-2", "Famous author-2", 270, true, null], ["Amazing book title-3", "Famous author-3", 300, false, null]];
+let bookArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet", 243, false, null], ["Amazing book title", "Famous author", 263, false, null]];
 for (const book of bookArray) {
     bookList.push(new Book(...book));
 }
