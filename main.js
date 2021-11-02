@@ -47,12 +47,31 @@ function changeStatus(index) {
     actionStatus.innerHTML = bookList[index].getActionStatus();
 }
 
+function deleteBook(index) {
+    let len = bookList.length;
+    let book = document.querySelector(`[data-index="${index}"]`);
+    book.remove();
+    for (let i = index + 1; i < len; i++) {
+        book = document.querySelector(`[data-index="${i}"]`);
+        book.remove();
+        bookList[i - 1] = bookList[i];
+    }
+    bookList.pop();
+
+    for (let i = index; i < len - 1; i++) {
+        addBookToLibrary(i);
+    }
+}
+
 function addBookToLibrary(index) {
     let bookItemHtml = `<article class="book-item" data-index=${index}>
                         <section class="book-image">
-                        <img src="${bookList[index].imageUrl}" alt="Not Found" onerror=this.src="${defaultImageURL}" />
+                        <img src="${bookList[index].imageUrl}" onerror=this.src="${defaultImageURL}" />
                         </section>
                         <section class="book-details">
+                        <div class="exit-button">
+                        <button onclick="deleteBook(${index})">X</button>
+                        </div>
                         <section class="book-data book-title">
                             <section class="book-header">Title:</section>
                             <section class="book-value">
@@ -83,7 +102,7 @@ function addBookToLibrary(index) {
     bookListSection.innerHTML += bookItemHtml;
 }
 
-let bookArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Amazing book title", "Famous author", 263, false, null]];
+let bookArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Amazing book title", "Famous author", 263, false, null], ["Amazing book title-2", "Famous author-2", 270, true, null], ["Amazing book title-3", "Famous author-3", 300, false, null]];
 for (const book of bookArray) {
     bookList.push(new Book(...book));
 }

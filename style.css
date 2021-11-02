@@ -157,13 +157,13 @@ form > section {
   display: none;
 }
 
-#exit-button {
+.exit-button {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-#exit-button > button {
+.exit-button > button {
   background-color: transparent;
   border-color: black;
   border-radius: 15px;
