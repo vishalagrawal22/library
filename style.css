@@ -207,3 +207,8 @@ form > section {
   font-size: 1.5vw;
   font-family: "BioRhyme", serif;
 }
+
+footer {
+  width: 100%;
+  height: 15vh;
+}
