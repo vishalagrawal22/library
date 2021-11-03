@@ -29,9 +29,6 @@ prevButton.onclick = function () {
     }
 }
 
-curPage.textContent = 1;
-lastPage.textContent = 1;
-
 function Book(title, author, pageCount, isRead, imageUrl) {
     this.title = title;
     this.author = author;
@@ -88,6 +85,7 @@ form.addEventListener('submit', event => {
     curPage.textContent = maxLen;
     currentlyPage = maxLen - 1;
     displayBook();
+    updateCache();
     exitForm();
 });
 
@@ -105,6 +103,7 @@ function changeStatus(index) {
     readStatus.innerHTML = bookList[index].getReadStatus();
     let actionStatus = statusSection.querySelector(".book-value-button button");
     actionStatus.innerHTML = bookList[index].getActionStatus();
+    updateCache();
 }
 
 function deleteBook(index) {
@@ -124,6 +123,7 @@ function deleteBook(index) {
         curPage.textContent = currentlyPage + 1;
     }
     displayBook();
+    updateCache();
 }
 
 function addBookToDisplay(index) {
@@ -165,9 +165,39 @@ function addBookToDisplay(index) {
     bookListSection.innerHTML += bookItemHtml;
 }
 
-let bookArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Lorem ipsum dolor sit amet, consectetur adipiscing", "Lorem ipsum dolor sit amet, consectetur adipiscing", 243, false, null], ["Amazing book title", "Famous author", 263, false, null]];
-for (const book of bookArray) {
-    bookList.push(new Book(...book));
+function updateCache() {
+    console.log("Updating Cache");
+    let cacheArray = new Array(bookList.length);
+    for (let i = 0; i < bookList.length; i++) {
+        const book = bookList[i];
+        console.log(book);
+        cacheArray[i] = [book.title, book.author, book.pageCount, book.isRead, book.imageUrl];
+    }
+    myStorage.setItem("userBookList", JSON.stringify(cacheArray));
+    console.log(cacheArray);
+    console.log(JSON.stringify(cacheArray));
 }
 
+function getCache() {
+    myStorage = window.localStorage;
+    if (myStorage.getItem("userBookList") == null) {
+        let defaultCacheArray = [["Harry Potter and the Chamber of Secrets", "J. K. Rowling", 251, true, "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQonVotG4wBf9-cvKmdGf9UIM9ITHMfexp-ZtD_9xAkx9m1fKtR"], ["Amazing book title", "Famous author", 263, false, ""], ["Lorem ipsum dolor sit amet, consectetur adipiscing", "Lorem ipsum dolor sit amet, consectetur adipiscing", 243, false, ""]];
+        console.log(JSON.stringify(defaultCacheArray));
+        myStorage.setItem("userBookList", JSON.stringify(defaultCacheArray));
+    }
+    console.log(myStorage.getItem("userBookList"));
+    let cacheArray = JSON.parse(myStorage.getItem("userBookList"));
+    curPage.textContent = 1;
+    lastPage.textContent = Math.ceil(cacheArray.length / 3);
+    convertCache(cacheArray);
+}
+
+function convertCache(cacheArray) {
+    console.log(cacheArray);
+    for (const book of cacheArray) {
+        bookList.push(new Book(...book));
+    }
+}
+
+getCache();
 displayBook();
