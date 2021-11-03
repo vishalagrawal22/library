@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  margin: 0px;
+  margin: 0%;
   width: 100%;
   min-height: 100%;
   background-image: url(./images/background.jpg);
@@ -16,8 +16,8 @@ header {
   justify-content: center;
   width: 100%;
   font-family: "BioRhyme", serif;
-  font-size: 5vw;
-  margin: 0.5vh;
+  font-size: 4vw;
+  margin: 0vh 0.5vw;
   margin-left: auto;
   color: white;
 }
@@ -30,12 +30,12 @@ header {
 }
 
 .book-item {
-  width: 50vw;
-  height: 25vh;
+  width: 45vw;
+  height: 22vh;
   display: flex;
   flex-direction: row;
-  margin: 1vh;
-  padding: 2vh;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
   border-radius: 15px;
   background-color: rgba(120, 120, 120, 0.8);
   color: white;
@@ -49,43 +49,48 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  height: 80%;
   width: 20%;
-  margin-right: 1vmax;
+  margin-right: 1vw;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .book-image > img {
-  height: 80%;
+  height: 100%;
+  width: 100%;
 }
 
 .book-details {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 100%;
+  height: 80%;
   width: 80%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .book-header {
   color: white;
-  margin-right: 1vmax;
+  margin-right: 1vw;
   font-family: "BioRhyme", serif;
-  font-size: 2.5vmin;
+  font-size: 2.3vmin;
 }
 
 .book-value {
   color: black;
   font-family: "Space Mono", monospace;
-  font-size: 2.5vmin;
+  font-size: 2.3vmin;
 }
 
 .book-value-button {
   margin: auto;
-  margin-left: 1vmax;
+  margin-left: 1vw;
 }
 
 .book-value-button > button {
-  font-size: 2vmin;
+  font-size: 1.8vmin;
 }
 
 button {
@@ -100,11 +105,11 @@ button {
 #add-book {
   background-color: #66cdaa;
   border: none;
-  width: 7vmin;
-  height: 7vmin;
+  width: 5vmax;
+  height: 5vmax;
   color: white;
   font-family: Verdana;
-  font-size: 1.2em;
+  font-size: 3vmin;
   font-weight: bold;
   text-decoration: none;
   display: block;
@@ -138,19 +143,15 @@ button {
 form {
   background-color: white;
   border-radius: 15px;
-  padding: 3vmax;
-  box-shadow: 1px 1px 0px #999,
-              2px 2px 0px #999,
-              3px 3px 0px #999,
-              4px 4px 0px #999,
-              5px 5px 0px #999,
-              6px 6px 0px #999;
+  padding: 3vh 1vw;
+  box-shadow: 1px 1px 0px #999, 2px 2px 0px #999, 3px 3px 0px #999,
+    4px 4px 0px #999, 5px 5px 0px #999, 6px 6px 0px #999;
 }
 
 form > section {
   display: flex;
   flex-direction: column;
-  margin: 2vmax;
+  margin: 2vh 1vw;
 }
 
 .hidden {
@@ -166,5 +167,17 @@ form > section {
 .exit-button > button {
   background-color: transparent;
   border-color: black;
+  border-radius: 15px;
+}
+
+.remove-button {
+  margin-left: 0.5vw;
+  align-items: flex-start;
+}
+
+.remove-button > button {
+  background-color: transparent;
+  border-color: white;
+  color: white;
   border-radius: 15px;
 }

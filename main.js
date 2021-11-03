@@ -76,9 +76,6 @@ function addBookToLibrary(index) {
                         <img src="${bookList[index].imageUrl}" onerror=this.src="${defaultImageURL}" />
                         </section>
                         <section class="book-details">
-                        <div class="exit-button">
-                        <button onclick="deleteBook(${index})">X</button>
-                        </div>
                         <section class="book-data book-title">
                             <section class="book-header">Title:</section>
                             <section class="book-value">
@@ -103,6 +100,9 @@ function addBookToLibrary(index) {
                                 <button class="is-read" onclick="changeStatus(${index})">${bookList[index].getActionStatus()}</button>
                             </section>
                         </section>
+                        </section>
+                        <section class="remove-button">
+                        <button onclick="deleteBook(${index})">X</button>
                         </section>
                         </article>`
     let bookListSection = document.querySelector("#book-list");
