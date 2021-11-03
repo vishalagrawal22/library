@@ -189,6 +189,10 @@ function getCache() {
     let cacheArray = JSON.parse(myStorage.getItem("userBookList"));
     curPage.textContent = 1;
     lastPage.textContent = Math.ceil(cacheArray.length / 3);
+    if (lastPage.textContent == 0)
+    {
+        lastPage.textContent = 1;
+    }
     convertCache(cacheArray);
 }
 
