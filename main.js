@@ -29,20 +29,22 @@ prevButton.onclick = function () {
     }
 }
 
-function Book(title, author, pageCount, isRead, imageUrl) {
-    this.title = title;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.isRead = isRead;
-    this.imageUrl = imageUrl;
-}
+class Book {
+    constructor(title, author, pageCount, isRead, imageUrl) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+        this.isRead = isRead;
+        this.imageUrl = imageUrl;
+    }
+    
+    getReadStatus() {
+        return this.isRead ? "Finished" : "Pending";
+    }
 
-Book.prototype.getReadStatus = function () {
-    return this.isRead ? "Finished" : "Pending";
-}
-
-Book.prototype.getActionStatus = function () {
-    return this.isRead ? "Mark as pending" : "Mark as finished";
+    getActionStatus() {
+        return this.isRead ? "Mark as pending" : "Mark as finished";
+    }
 }
 
 function clearScreen() {
